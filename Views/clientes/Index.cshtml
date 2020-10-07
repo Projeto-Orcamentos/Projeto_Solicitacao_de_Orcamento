@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Solicitacao_de_orcamento.Models.cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Solicitações</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar", "Cadastro")
+</p>
+<table class="table table-striped">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoProjeto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td >
+            @Html.DisplayFor(modelItem => item.TipoProjeto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhe", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Deletar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
